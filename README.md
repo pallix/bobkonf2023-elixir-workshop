@@ -16,3 +16,43 @@ fundamental aspects of Elixir and its runtime.
 
 Follow the instructions at [BEFORE_WORKSHOP.md](BEFORE_WORKSHOP.md) to setup
 your system for the workshop.
+
+## During the workshop
+
+We will present shortly Elixir and its runtime and then you can start tasting
+the following tapas. Try the tapas in the order suggested but if you feel
+adventurous, you can pick and choose.
+
+The tapas are loosely connected through a common theme: sponsorship and caring
+for (physical) trees. The Elixir building blocks we will explore could be used
+to build a system helping to organize a community taking care of some trees.
+
+## Tapas
+
+### Basics of the language
+
+Keywords: immutable datastructures, map, structs, list, enumerables, pattern matching, guards
+
+- [Tapa datastructures](./tapa_datastructures/README.md)
+- [Tapa enumerables]()
+
+### Processes, message passing, distributed nodes
+
+Keywords: processes, links, monitor, distributed erlang
+
+- [Tapa processes]()
+- [Tapa observer1]()
+
+### Generic servers and supervision
+
+Keywords: genserver, supervisor, tasks
+
+- [Tapa genserver]()
+- [Tapa supervisor]()
+- [Tapa observability]()
+
+### Metaprogramming
+
+Keywords: syntactic macros
+
+- [Tapa macro]()
