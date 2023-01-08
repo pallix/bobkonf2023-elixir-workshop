@@ -31,12 +31,8 @@ defmodule TapaDatastructures.Tree do
 
   @doc "Creates a tree with random attributes."
   def create_random_tree() do
+    # TODO: implement this
     %Tree{
-      uuid: UUID.uuid1(),
-      latitude: random_latitude(),
-      longitude: random_longitude(),
-      moisture: :rand.uniform(101) - 1,
-      specie: random_specie()
     }
   end
 
@@ -46,16 +42,8 @@ defmodule TapaDatastructures.Tree do
   @doc """
   Returns an atom representing the moisture level.
   """
-  def moisture_level(%Tree{moisture: moisture}) when moisture < 20 do
-    :excessively_dry
-  end
-
-  def moisture_level(%Tree{moisture: moisture}) when moisture >= 20 and moisture < 80 do
-    :normal
-  end
-
-  def moisture_level(%Tree{moisture: moisture}) when moisture >= 80 do
-    :excessively_wet
+  def moisture_level() do
+    # TODO: implement this
   end
 
   defp random_latitude() do
