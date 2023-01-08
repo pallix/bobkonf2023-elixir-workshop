@@ -56,13 +56,15 @@ Once you are finished with this tapa, read this:
 
 <details>
 
-You have probably notice that Elixir can identify a missing or invalid key in a
-struct at compile time and also when using the update syntax: `%{my_record |
-field: new_value}`. This is one advantage of using structures over maps. Maps on
-the other end are more flexible since they can have all possible keys and do not
+You have probably notice that Elixir can identify a missing key in a struct at
+compile time. This is one advantage of using structures over maps. Maps on the
+other end are more flexible since they can have all possible keys and do not
 require to be declared in advance, we will explore them in the next tapa.
 
-We often categorize languages as dynamically or statically type, but even in
+The update syntax: `%MyRecord{record_variable | field: new_value}` prevents us from updating a
+field that does not exist. This is checked at compile time for structs and at runtime for maps.
+
+We often categorize languages as dynamically or statically typed, but even in
 these categories, some languages offer more guarantees than other. If you have
 used a dynamically language recently, what kind of guarantees are provided by it
 at compile time?
