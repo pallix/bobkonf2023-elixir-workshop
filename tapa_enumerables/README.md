@@ -98,8 +98,9 @@ iex(29)> tree |> Map.from_struct() |> Enum.each(&IO.inspect/1)
 
 What happened?
 
-But structs do not implement the Enumerable protocol so this will fail:
-`Enum.each(tree, &IO.inspect/1)`. See the discussion on the [Elixir
+But structs do not implement the Enumerable protocol (a protocol is a bit like
+an interface in other languages) so this will fail: `Enum.each(tree,
+&IO.inspect/1)`. See the discussion on the [Elixir
 forum](https://elixirforum.com/t/access-behaviour-on-structs/11003/2) if you
 want to understand why or just skip to the next tapa, it's not really important
 for this workshop!
@@ -126,19 +127,19 @@ Once you are finished with this tapa, read this:
 
 We have only tasted `filter`, `map` and `reduce` but while there are many other
 functions in the `Enum` module, these cover 90% of the needs, like in any
-function language.
+functional language.
 
 When using `Enum.map` twice on a collection, for example with the pipe (`|>`)
-operator, we iterate twice on the elements of the list. The performanc will be
-poor if we have a lot of operations or a lot elements. We could use only one
-call to `map` and do the two operations inside it but what we gain in efficency
+operator, we iterate twice on the elements of the list. The performance will be
+poor if we have a lot of operations or a lot of elements. We could use only one
+call to `map` and do the two operations inside it but what we gain in efficiency
 we then loose in composability. The `Stream` modules allows to calculate
-elements in a lazy way, solving this problem. It also allow to consume some data
+elements in a lazy way, solving this problem. It also allows to consume some data
 on demand, for example if we need to read a huge file and not load everything at
 once in memory (see https://hexdocs.pm/elixir/1.14.2/File.html#stream!/3).
 
-All Elixir collections implements the Enumerable protocol (a protocol is a bit
-like an interface in other languages) so the `Enum` module is valid for all of them, not only for lists!
+All Elixir collections implements the Enumerable protocol so the functions in
+the `Enum` module are valid for all of them, not only for lists!
 
 Do your language of choice offers a way to unify collections under a common
 interface? Does it offer streams as part of the standard library or with an
