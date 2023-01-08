@@ -1,21 +1,31 @@
 # TapaEnumerables
 
-**TODO: Add description**
+## Before starting
 
-## Installation
+Fetch the dependencies of the project with:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `tapa_enumerables` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:tapa_enumerables, "~> 0.1.0"}
-  ]
-end
+```
+mix deps.get
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/tapa_enumerables>.
+## Goal
 
+### Part one
+
+Have all the test green. Run the tests with this command:
+
+```
+mix test
+```
+
+You will which tests are failing.
+
+### Part two
+
+Discovering the `iex` REPL.
+
+
+## Tips
+
+Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
+calculate the distance between two locations.
