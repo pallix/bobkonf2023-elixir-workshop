@@ -90,6 +90,20 @@ This implementation of `from_struct` is obviously simple but in general it is
 true the source code of Elixir can be read easily. Did you see the `</>` symbols
 in the documentation of the API? It links to the source code of each function.
 
+Maps are enumerable too, type this for example:
+
+```
+iex(29)> tree |> Map.from_struct() |> Enum.each(&IO.inspect/1)
+```
+
+What happened?
+
+But structs do not implement the Enumerable protocol so this will fail:
+`Enum.each(tree, &IO.inspect/1)`. See the discussion on the [Elixir
+forum](https://elixirforum.com/t/access-behaviour-on-structs/11003/2) if you
+want to understand why or just skip to the next tapa, it's not really important
+for this workshop!
+
 If you make some modification to a module, you can reload it in `iex` like this:
 
 ```
@@ -101,7 +115,8 @@ iex(20)> r TapaEnumerables.Tree
 ## Tips
 
 Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
-calculate the distance between two locations. You will need also the function in the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`)
+rocalculate the distance between two locations. You will need also the function in the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`).
+Remember that modules names are just atoms, so `when is_atom(struct)` is checking if the parameter is a module.
 
 ## Open questions
 
@@ -123,8 +138,7 @@ on demand, for example if we need to read a huge file and not load everything at
 once in memory (see https://hexdocs.pm/elixir/1.14.2/File.html#stream!/3).
 
 All Elixir collections implements the Enumerable protocol (a protocol is a bit
-like an interface in other languages) so the `Enum` module is valid for all of
-them, not only for lists!
+like an interface in other languages) so the `Enum` module is valid for all of them, not only for lists!
 
 Do your language of choice offers a way to unify collections under a common
 interface? Does it offer streams as part of the standard library or with an
