@@ -22,10 +22,110 @@ You will which tests are failing.
 
 ### Part two
 
-Discovering the `iex` REPL.
+Playing with `maps` and discovering the `iex` REPL.
+
+Starts iex for the project like this:
+
+`iex -S mix`
+
+Be sure to be in the `tapa_enumerables` directory.
+
+Alias the `Tree` module:
+
+```
+iex(1)> alias TapaEnumerables.Tree
+```
+
+Now creates a tree in the REPL:
+
+```
+iex(2)> tree = %Tree{uuid: UUID.uuid1(), latitude: 0, longitude: 0, moisture: 50}
+```
+
+We can use the field of the structure to access it:
+
+```
+iex(6)> tree.moisture
+50
+```
+
+All function in the `Map` module are also available for structures:
+
+```
+iex(7)> Map.get(tree, :moisture)
+50
+iex(8)> Map.get(tree, :this_field_does_not_exists)
+nil
+```
+
+Type `tree.` in the REPL and enter the tabulation key, you should see:
+
+```
+iex(10)> tree.
+__struct__    latitude      longitude     moisture      specie
+uuid
+```
+
+We see all fields declared in the structure plus `__struct__`.
+
+Its value is the module of the structure:
+
+```
+iex(10)> tree.__struct__
+TapaEnumerables.Tree
+```
+
+Creates a copy of the tree where the `__struct__` field is deleted:
+
+```
+iex(13)> tree2 = Map.delete(tree, :__struct__)
+```
+
+You can now see with the `is_struct` function that `tree2` is not a struct anymore.
+
+There is a `Map.from_struct` function in the `Map` module. It converts from a
+struct to a plain map. How do you think it is implemented :-)? Check its [source](https://github.com/elixir-lang/elixir/blob/v1.14.2/lib/elixir/lib/map.ex#L999). 
+
+This implementation of `from_struct` is obviously simple but in general it is
+true the source code of Elixir can be read easily. Did you see the `</>` symbols
+in the documentation of the API? It links to the source code of each function.
+
+If you make some modification to a module, you can reload it in `iex` like this:
+
+```
+iex(20)> r TapaEnumerables.Tree
+```
+
 
 
 ## Tips
 
 Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
 calculate the distance between two locations.
+
+## Open questions
+
+Once you are finished with this tapa, read this:
+
+<details>
+
+We have only tasted `filter`, `map` and `reduce` but while there are many other
+functions in the `Enum` module, these cover 90% of the needs, like in any
+function language.
+
+When using `Enum.map` twice on a collection, for example with the pipe (`|>`)
+operator, we iterate twice on the elements of the list. The performanc will be
+poor if we have a lot of operations or a lot elements. We could use only one
+call to `map` and do the two operations inside it but what we gain in efficency
+we then loose in composability. The `Stream` modules allows to calculate
+elements in a lazy way, solving this problem. It also allow to consume some data
+on demand, for example if we need to read a huge file and not load everything at
+once in memory (see https://hexdocs.pm/elixir/1.14.2/File.html#stream!/3).
+
+All Elixir collections implements the Enumerable protocol so the `Enum` module
+is valid for all of them, not only for lists!
+
+Do your language of choice offers a way to unify collections? Does it offer
+streams as part of the standard library or with an external library?
+
+</details>
