@@ -29,9 +29,24 @@ Stuck? Here some other tips:
 
 <details>
 
-Find the functions available in the Map module in the [official documentation](https://hexdocs.pm/elixir/Map.html)
+Refer to the documentation on [guards](https://hexdocs.pm/elixir/guards.html)
 
-Or the documentation about the [Erlang `rand` module](https://www.erlang.org/doc/man/rand.html#uniform-0)
+You can pattern-match a structure in a function like this:
+
+```
+def my_function(%my_struct{value: 1}) do
+ # do something
+end
+
+def my_function(%my_struct{value: 2}) do
+ # do something else
+end
+```
+
+Pattern-matching works also on lists, maps, integer, etc.
+
+If you are curious, check the documentation about the [Erlang `rand:uniform`
+](https://www.erlang.org/doc/man/rand.html#uniform-0) function.
 
 </details>
 
