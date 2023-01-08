@@ -29,6 +29,7 @@ defmodule TapaDatastructures.TreeTest do
     assert moisture_level(tree) == :excessively_dry
     assert moisture_level(%{tree | moisture: 50}) == :normal
     assert moisture_level(%{tree | moisture: 80}) == :excessively_wet
+    assert moisture_level(%{tree | moisture: :unknown}) == :unknown
   end
 
 end
