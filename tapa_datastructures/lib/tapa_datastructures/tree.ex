@@ -46,6 +46,10 @@ defmodule TapaDatastructures.Tree do
   @doc """
   Returns an atom representing the moisture level.
   """
+  def moisture_level(%Tree{moisture: :unknown}) do
+    :unknown
+  end
+
   def moisture_level(%Tree{moisture: moisture}) when moisture < 20 do
     :excessively_dry
   end
