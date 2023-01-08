@@ -12,13 +12,13 @@ mix deps.get
 
 ### Part one
 
-Have all the test green. Run the tests with this command:
+Run the tests with this command:
 
 ```
 mix test
 ```
 
-You will which tests are failing.
+Fix the failing test!
 
 ### Part two
 
@@ -101,7 +101,7 @@ iex(20)> r TapaEnumerables.Tree
 ## Tips
 
 Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
-calculate the distance between two locations.
+calculate the distance between two locations. You will need also the function in the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`)
 
 ## Open questions
 
@@ -122,10 +122,12 @@ elements in a lazy way, solving this problem. It also allow to consume some data
 on demand, for example if we need to read a huge file and not load everything at
 once in memory (see https://hexdocs.pm/elixir/1.14.2/File.html#stream!/3).
 
-All Elixir collections implements the Enumerable protocol so the `Enum` module
-is valid for all of them, not only for lists!
+All Elixir collections implements the Enumerable protocol (a protocol is a bit
+like an interface in other languages) so the `Enum` module is valid for all of
+them, not only for lists!
 
-Do your language of choice offers a way to unify collections? Does it offer
-streams as part of the standard library or with an external library?
+Do your language of choice offers a way to unify collections under a common
+interface? Does it offer streams as part of the standard library or with an
+external library?
 
 </details>
