@@ -84,18 +84,12 @@ Note that `receive` does not create a loop, it just blocks until a matching mess
 Now executes this:
 
 ```
-iex(node1@127.0.0.1)33> pid = TapaMessages.start_message_receiver_2()
-#PID<0.252.0>
-iex(node1@127.0.0.1)34> send(pid, :some_message)
-:some_message
-iex(node1@127.0.0.1)35> Process.alive?(pid)
-true
-iex(node1@127.0.0.1)36> Process.info(pid) |> Keyword.get(:message_queue_len)
-1
-iex(node1@127.0.0.1)37> send(pid, :some_message_2)
-:some_message_2
-iex(node1@127.0.0.1)38> Process.info(pid) |> Keyword.get(:message_queue_len)
-2
+pid = TapaMessages.start_message_receiver_2()
+send(pid, :some_message)
+Process.alive?(pid)
+Process.info(pid) |> Keyword.get(:message_queue_len)
+send(pid, :some_message_2)
+Process.info(pid) |> Keyword.get(:message_queue_len)
 ```
 
 What is happening? How can we fix this problem?
@@ -142,5 +136,4 @@ iex(node2@127.0.0.1)5> node1 = :"node1@127.0.0.1"
 :"node1@127.0.0.1"
 iex(node2@127.0.0.1)6> Node.ping(node1)
 :pong
-Node.ping
 ```
