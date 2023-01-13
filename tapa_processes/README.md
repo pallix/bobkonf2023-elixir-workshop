@@ -110,3 +110,27 @@ What happen when you change the `spawn_link` to `spawn`, reload the module with
 In addition to `spawn` and `spawn_link` there is also `Process.spawn` which is
 slightly higher level API. In practice we rarely use these functions but higher
 constructions like GenServers.
+
+# Tips
+
+Remember that `'Erlang string'` is the Erlang syntax for strings whereas the `"Elixir string"` is for Elixir.
+
+Processes are not operating systems processes, they are much lighter and less
+expensive (no fork in the OS kernel).
+
+Don't just look at the first page on Google when searching the Erlang
+documentation, often older version of the documentation get better indexed than
+newer so check you are reading the latest version.
+
+# Open questions
+
+How many processes can you create on a machine? Does it depend only of the
+hardware? What does the
+[doc](https://www.erlang.org/doc/efficiency_guide/advanced.html) say?
+
+Can you interrupt light processes in your language of choice?
+
+For example in Go, it is not possible to interrupt a Go routine from another go
+routine. This needs to be implemented manually by passing a special value to the
+communication channel. Elixir can do it because the Erlang VM implements
+preemptive scheduling.
