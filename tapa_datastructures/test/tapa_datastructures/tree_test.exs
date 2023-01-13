@@ -27,9 +27,9 @@ defmodule TapaDatastructures.TreeTest do
     tree = %Tree{latitude: 0, longitude: 0, moisture: 5, specie: :maple, uuid: UUID.uuid1()}
 
     assert moisture_level(tree) == :excessively_dry
-    assert moisture_level(%{tree | moisture: 50}) == :normal
-    assert moisture_level(%{tree | moisture: 80}) == :excessively_wet
-    assert moisture_level(%{tree | moisture: :unknown}) == :unknown
+    assert moisture_level(%Tree{tree | moisture: 50}) == :normal
+    assert moisture_level(%Tree{tree | moisture: 80}) == :excessively_wet
+    assert moisture_level(%Tree{tree | moisture: :unknown}) == :unknown
   end
 
 end

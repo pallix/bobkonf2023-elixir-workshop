@@ -31,12 +31,12 @@ to build a system helping to organize a community taking care of some trees.
 
 ### Basics of the language
 
-Keywords: immutable datastructures, map, structs, list, enumerables, pattern matching, guards
+Keywords: immutable datastructures, map, structs, list, enumerables, pattern matching, guards, iex
 
 - [Tapa datastructures](./tapa_datastructures/README.md)
-- [Tapa enumerables]()
+- [Tapa enumerables](./tapa_enumerables/README.md)
 
-### Processes, message passing, distributed nodes
+### Processes, message passing, nodes
 
 Keywords: processes, links, monitor, distributed erlang
 
