@@ -18,7 +18,15 @@ Run the tests with this command:
 mix test
 ```
 
-Fix the failing test!
+Fix the failing tests!
+
+You can run one module test only with (for example):
+
+`mix test test/tapa_enumerables/location_test.exs`
+
+or only one test with (for example):
+
+`mix test test/tapa_enumerables/location_test.exs:10`
 
 ### Part two
 
