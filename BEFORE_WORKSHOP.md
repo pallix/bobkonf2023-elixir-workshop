@@ -8,7 +8,7 @@ Clone this repository on your laptop:
 git clone https://github.com/pallix/bobkonf2023-elixir-workshop.git
 ```
 
-### Installing Elixir
+### Installing Elixir (mandatory)
 
 Make sure you have Elixir 1.13 or superior installed. You can find
 [instructions](https://elixir-lang.org/install.html#distributions) on the
@@ -24,7 +24,7 @@ the [docker image](https://elixir-lang.org/install.html#docker) or install the
 can get a shell with a recent Elixir version with the following command:
 `nix-shell -p elixir`.
 
-### Verifying the Elixir installation
+### Verifying the Elixir installation (mandatory)
 
 Check your Elixir version with the following command:
 
@@ -88,10 +88,26 @@ Finished in 0.01 seconds (0.00s async, 0.01s sync)
 [...]
 ```
 
-Well done, you are ready for the workshop!
+### Setting up your editor / IDE (mandatory)
+
+Set up your editor or IDE to work with Elixir.
+Elixir has support for the language server protocol.
 
 ### Watching a cool talk (optional)
 
 The [Soul of Erlang and Elixir](https://www.youtube.com/watch?v=JvBT4XBdoUE) by
 Sasa Juric is a very interesting talk and, if you have time, makes a perfect
 introduction to the workshop.
+
+### Starting the first two tapas (recommanded)
+
+We have lot of awesome workshop material and a limited amount time so we encourage
+the participants to do the first two tapas at home before the workshop so that we
+can concentrate on the fault-tolerant aspects of Elixir!
+
+- [Tapa datastructures](./tapa_datastructures/README.md)
+- [Tapa enumerables](./tapa_enumerables/README.md)
+
+### Finishing
+
+Well done, you are ready for the workshop!
