@@ -33,6 +33,11 @@ defmodule TapaDatastructures.Tree do
   def create_random_tree() do
     # TODO: implement this
     %Tree{
+      uuid: nil,
+      latitude: nil,
+      longitude: nil,
+      specie: nil,
+      moisture: nil
     }
   end
 
@@ -42,8 +47,8 @@ defmodule TapaDatastructures.Tree do
   @doc """
   Returns an atom representing the moisture level.
   """
-  def moisture_level() do
-    # TODO: implement this
+  # TODO, implement this with pattern matching and guards
+  def moisture_level(tree) do
   end
 
   defp random_latitude() do
