@@ -81,14 +81,16 @@ Creates a copy of the tree where the `__struct__` field is deleted:
 iex(13)> tree2 = Map.delete(tree, :__struct__)
 ```
 
-You can now see with the `is_struct` function that `tree2` is not a struct anymore.
+You can now see with the [is_struct](https://hexdocs.pm/elixir/1.12/Kernel.html#is_struct/1) function that `tree2` is not a struct anymore.
 
 There is a `Map.from_struct` function in the `Map` module. It converts from a
 struct to a plain map. How do you think it is implemented :-)? Check its [source](https://github.com/elixir-lang/elixir/blob/v1.14.2/lib/elixir/lib/map.ex#L999). Remember that modules names are just atoms, so `when is_atom(struct)` is checking if the parameter is a module.
 
 This implementation of `from_struct` is obviously simple but in general it is
 true the source code of Elixir can be read easily. Did you see the `</>` symbols
-in the documentation of the API? It links to the source code of each function.
+in the [documentation of the
+API](https://hexdocs.pm/elixir/1.12/Kernel.html#is_struct/1)? It links to the
+source code of each function.
 
 Maps are enumerable too, type this for example:
 
