@@ -32,7 +32,7 @@ defmodule TapaDatastructures.Tree do
   @doc "Creates a tree with random attributes."
   def create_random_tree() do
     %Tree{
-      uuid: UUID.uuid1(),
+      uuid: Uniq.UUID.uuid1(),
       latitude: random_latitude(),
       longitude: random_longitude(),
       moisture: :rand.uniform(101) - 1,

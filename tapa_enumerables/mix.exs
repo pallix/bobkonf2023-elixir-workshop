@@ -23,7 +23,7 @@ defmodule TapaEnumerables.MixProject do
   defp deps do
     [
       {:geocalc, "~> 0.8"},
-      { :uuid, "~> 1.1" }
+      {:uniq, "~> 0.1"}
     ]
   end
 end

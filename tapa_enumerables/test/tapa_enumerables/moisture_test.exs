@@ -3,6 +3,7 @@ defmodule TapaEnumerables.MoistureTest do
 
   alias TapaEnumerables.Moisture
   alias TapaEnumerables.Tree
+  alias Uniq.UUID
 
   describe "the average moisture of a list of trees" do
     test "is :unknown is the list is empty" do

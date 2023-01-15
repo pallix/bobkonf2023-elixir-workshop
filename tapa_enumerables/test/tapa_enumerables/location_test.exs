@@ -3,6 +3,7 @@ defmodule TapaEnumerables.LocationTest do
 
   alias TapaEnumerables.Location
   alias TapaEnumerables.Tree
+  alias Uniq.UUID
 
   @bobkonf_location {52.5760184, 13.3517038}
 
