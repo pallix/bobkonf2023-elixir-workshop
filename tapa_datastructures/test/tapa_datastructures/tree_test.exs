@@ -4,6 +4,7 @@ defmodule TapaDatastructures.TreeTest do
   import TapaDatastructures.Tree
 
   alias TapaDatastructures.Tree
+  alias Uniq.UUID
 
   test "create a random tree struct" do
     tree = create_random_tree()

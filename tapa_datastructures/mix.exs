@@ -7,8 +7,7 @@ defmodule TapaDatastructures.MixProject do
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
-      deps: deps(),
-      xref: [exclude: [:crypto]]
+      deps: deps()
     ]
   end
 
@@ -23,7 +22,7 @@ defmodule TapaDatastructures.MixProject do
   defp deps do
     [
       {:geocalc, "~> 0.8"},
-      { :uuid, "~> 1.1" }
+      {:uniq, "~> 0.1"}
     ]
   end
 end

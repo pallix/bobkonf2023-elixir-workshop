@@ -2,6 +2,7 @@ defmodule TapaEnumerables.Tree do
   @moduledoc "Represents a physical tree and the operations on it"
 
   alias TapaEnumerables.Tree
+  alias Uniq.UUID
 
   @enforce_keys [:uuid, :latitude, :longitude, :moisture]
 

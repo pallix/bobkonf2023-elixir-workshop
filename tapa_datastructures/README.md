@@ -23,7 +23,7 @@ until all the tests pass.
 
 ## Tips
 
-You can use the `UUID.uuid1()` function to generate random identifiers for the trees.
+You can use the `Uniq.UUID.uuid1()` function to generate random identifiers for the trees.
 
 Stuck? Here some other tips:
 

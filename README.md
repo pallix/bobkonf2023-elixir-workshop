@@ -38,15 +38,17 @@ Keywords: immutable datastructures, map, structs, list, enumerables, pattern mat
 
 ### Processes, message passing, nodes
 
-Keywords: processes, links, monitor, distributed erlang
+Keywords: processes, messages, links, monitor, distributed erlang, trap exit
 
-- [Tapa processes]()
-- [Tapa observer1]()
+- [Tapa processes](./tapa_processes/README.md)
+- [Tapa messages](./tapa_messages/README.md)
+- [Tapa monitor]() ?
 
 ### Generic servers and supervision
 
 Keywords: genserver, supervisor, tasks
 
+- [Tapa observer]()
 - [Tapa genserver]()
 - [Tapa supervisor]()
 - [Tapa observability]()

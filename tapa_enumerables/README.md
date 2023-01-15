@@ -84,7 +84,7 @@ iex(13)> tree2 = Map.delete(tree, :__struct__)
 You can now see with the `is_struct` function that `tree2` is not a struct anymore.
 
 There is a `Map.from_struct` function in the `Map` module. It converts from a
-struct to a plain map. How do you think it is implemented :-)? Check its [source](https://github.com/elixir-lang/elixir/blob/v1.14.2/lib/elixir/lib/map.ex#L999). 
+struct to a plain map. How do you think it is implemented :-)? Check its [source](https://github.com/elixir-lang/elixir/blob/v1.14.2/lib/elixir/lib/map.ex#L999). Remember that modules names are just atoms, so `when is_atom(struct)` is checking if the parameter is a module.
 
 This implementation of `from_struct` is obviously simple but in general it is
 true the source code of Elixir can be read easily. Did you see the `</>` symbols
@@ -117,7 +117,6 @@ iex(20)> r TapaEnumerables.Tree
 
 Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
 rocalculate the distance between two locations. You will need also the function in the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`).
-Remember that modules names are just atoms, so `when is_atom(struct)` is checking if the parameter is a module.
 
 ## Open questions
 
@@ -125,9 +124,8 @@ Once you are finished with this tapa, read this:
 
 <details>
 
-We have only tasted `filter`, `map` and `reduce` but while there are many other
-functions in the `Enum` module, these cover 90% of the needs, like in any
-functional language.
+We tasted `filter`, `map` and `reduce`. There are many other functions in the
+`Enum` module but these three are the most used.
 
 When using `Enum.map` twice on a collection, for example with the pipe (`|>`)
 operator, we iterate twice on the elements of the list. The performance will be
