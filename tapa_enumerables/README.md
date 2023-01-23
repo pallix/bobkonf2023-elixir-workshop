@@ -28,6 +28,17 @@ or only one test with (for example):
 
 `mix test test/tapa_enumerables/location_test.exs:10`
 
+Read this when you are finished:
+
+<details>
+
+As an extra exercise, if you have time, do this: if you implemented
+`average_moisture(trees)` with `Enum.sum` and `Enum.count`, make a second
+implementation of the function with `Enum.reduce` and vice versa.
+
+</details>
+
+
 ### Part two
 
 Playing with `maps` and discovering the `iex` REPL.
