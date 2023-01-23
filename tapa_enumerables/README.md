@@ -38,6 +38,36 @@ implementation of the function with `Enum.reduce` and vice versa.
 
 </details>
 
+### Tips
+
+The syntax for anonymous functions:
+
+a) like this
+
+```
+Enum.map([1, 2, 3], fn el -> doSomething(el, 42) end)
+```
+
+b) or like this:
+
+
+```
+Enum.map([1, 2, 3], &doSomething(&1, 42))
+```
+
+c) or like this:
+
+```
+Enum.map([1, 2, 3], &doAnotherThing/1)
+```
+
+Here `doAnotherThing/1` refers to the `doAnotherThing` function accepting one
+argument.
+
+
+Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
+calculate the distance between two locations. You will need also the function in
+the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`).
 
 ### Part two
 
@@ -131,13 +161,6 @@ If you make some modification to a module, you can reload it in `iex` like this:
 ```
 iex(20)> r TapaEnumerables.Tree
 ```
-
-
-
-## Tips
-
-Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
-rocalculate the distance between two locations. You will need also the function in the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`).
 
 ## Open questions
 
