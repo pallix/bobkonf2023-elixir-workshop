@@ -51,15 +51,19 @@ defmodule TapaDatastructures.Tree do
   def moisture_level(tree) do
   end
 
-  defp random_latitude() do
+  defp random_moisture do
+    :rand.uniform(101) - 1
+  end
+
+  defp random_latitude do
     :rand.uniform() * 180 - 90
   end
 
-  defp random_longitude() do
+  defp random_longitude do
     :rand.uniform() * 360 - 180
   end
 
-  defp random_specie() do
+  defp random_specie do
     Enum.random(@species)
   end
 end
