@@ -35,7 +35,7 @@ defmodule TapaDatastructures.Tree do
       uuid: Uniq.UUID.uuid1(),
       latitude: random_latitude(),
       longitude: random_longitude(),
-      moisture: :rand.uniform(101) - 1,
+      moisture: random_moisture(),
       specie: random_specie()
     }
   end
@@ -62,15 +62,19 @@ defmodule TapaDatastructures.Tree do
     :excessively_wet
   end
 
-  defp random_latitude() do
+  defp random_moisture do
+    :rand.uniform(101) - 1
+  end
+
+  defp random_latitude do
     :rand.uniform() * 180 - 90
   end
 
-  defp random_longitude() do
+  defp random_longitude do
     :rand.uniform() * 360 - 180
   end
 
-  defp random_specie() do
+  defp random_specie do
     Enum.random(@species)
   end
 end
