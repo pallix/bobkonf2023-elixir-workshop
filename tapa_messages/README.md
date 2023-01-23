@@ -26,7 +26,7 @@ to the current process like this:
 send(self(), :hello)
 ```
 
-An Elixir/Erlang system is highly observable and introspectable, we can see that the message queue
+An Elixir/Erlang system is highly observable and introspectable. We can see that the message queue
 of the current process contains one message:
 
 ```
