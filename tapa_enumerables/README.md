@@ -137,7 +137,8 @@ iex(20)> r TapaEnumerables.Tree
 ## Tips
 
 Use the [Geocalc.distance_between](https://github.com/yltsrc/geocalc) to
-rocalculate the distance between two locations. You will need also the function in the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`).
+calculate the distance between two locations. You will need also the function in
+the [Enum module](`https://hexdocs.pm/elixir/1.14.2/Enum.html`).
 
 ## Open questions
 
