@@ -137,3 +137,100 @@ iex(node2@127.0.0.1)5> node1 = :"node1@127.0.0.1"
 iex(node2@127.0.0.1)6> Node.ping(node1)
 :pong
 ```
+
+If the node is NOT reachable, `:pang` is returned instead.
+
+In terminal 2, let's register the process of the REPL with name and then listen
+to incoming messages:
+
+```
+iex(node2@127.0.0.1)1> Process.register(self(), :repl_node2)
+true
+iex(node2@127.0.0.1)2> receive do
+...(node2@127.0.0.1)2> msg -> IO.inspect(msg, label: "Received")
+...(node2@127.0.0.1)2> end
+```
+
+In terminal 1, send a message:
+
+```
+iex(node1@127.0.0.1)1> send({:repl_node2, :"node2@127.0.0.1"}, {:hello_from, self()})
+{:hello_from, #PID<0.156.0>}
+iex(node1@127.0.0.1)2> self()
+#PID<0.156.0>
+```
+
+Here `send` returns the send value and we can see that the local pid of the REPL
+starts with 0. Local pids always start with zero.
+
+Now go back to terminal 2, you should see something like that:
+
+```
+Received: {:hello_from, #PID<18770.156.0>}
+{:hello_from, #PID<18770.156.0>}
+```
+
+Here the PID we see is the global one but it still identifies the REPL process
+of node1. We have the local pid and the global pid for the same process.
+
+Now starts listening to messages in terminal 1:
+
+```
+iex(node1@127.0.0.1)3> receive do
+...(node1@127.0.0.1)3> msg -> IO.inspect(msg, label: "Received")
+...(node1@127.0.0.1)3> end
+```
+
+and sends a message from node2 to node1:
+
+```
+iex(node2@127.0.0.1)3> repl_node1_pid = :erlang.list_to_pid('<18770.156.0>')
+#PID<18770.156.0>
+iex(node2@127.0.0.1)4> send(repl_node1_pid, {:hello_back, 42})
+{:hello_back, 42}
+```
+
+Now check that the message is received in node1.
+
+We can not only send messages between nodes but also execute arbitrary code.
+This is why keeping the `~/.erlang.cookie` file secret is very important.
+
+```
+iex(node2@127.0.0.1)5> Node.spawn(:"node1@127.0.0.1", fn -> IO.inspect(self(), label: "pid") end)
+#PID<18770.172.0>
+pid: #PID<0.172.0>
+```
+
+We can see that the global pid listed above starts with the same number as the
+one for the REPL process of node1, this shows that the `IO.inspect` code is
+executed on node1.
+
+Finally, we can also send any values, inclusive functions!
+
+In terminal 2:
+
+```
+iex(node2@127.0.0.1)3> receive do
+...(node2@127.0.0.1)3> msg -> IO.inspect(msg.(100), label: "result")
+...(node2@127.0.0.1)3> end
+```
+
+In terminal 1:
+
+```
+iex(node1@127.0.0.1)14> send({:repl_node2, :"node2@127.0.0.1"}, add_42)
+#Function<44.65746770/1 in :erl_eval.expr/5>
+```
+
+In terminal 2:
+
+```
+result: 142
+142
+```
+
+We have executed in node2 a function sent from node1! This shows the power and
+the flexibility of Elixir/Erlang.
+
+In practice we almost never use such the low-level functions such as `send` and
+`Node.spawn` but built our application in top of GenServers.

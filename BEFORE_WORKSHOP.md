@@ -108,6 +108,9 @@ can concentrate on the fault-tolerant aspects of Elixir!
 - [Tapa datastructures](./tapa_datastructures/README.md)
 - [Tapa enumerables](./tapa_enumerables/README.md)
 
+The exercises are relatively simple and can be solved with the helped of their
+README and some googling.
+
 ### Finishing
 
 Well done, you are ready for the workshop!
