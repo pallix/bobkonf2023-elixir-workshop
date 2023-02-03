@@ -128,9 +128,11 @@ How many processes can you create on a machine? Does it depend only of the
 hardware? What does the
 [doc](https://www.erlang.org/doc/efficiency_guide/advanced.html) say?
 
-Can you interrupt light processes in your language of choice?
+Can you interrupt light processes in your language of choice? If there is a
+scheduler is it preemptive or cooperative?
 
-For example in Go, it is not possible to interrupt a Go routine from another go
-routine. This needs to be implemented manually by passing a special value to the
-communication channel. Elixir can do it because the Erlang VM implements
-preemptive scheduling.
+The Elixir scheduler is preemptive. Go routines, for example, are [partially
+preemptive](https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html):
+they are mostly cooperative with some preemption points. It's thus not possible
+to interrupt a Go routine from another one without implementing an interruption
+mechanism oneself.
