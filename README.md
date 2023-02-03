@@ -42,7 +42,6 @@ Keywords: processes, messages, links, monitor, distributed erlang, trap exit
 
 - [Tapa processes](./tapa_processes/README.md)
 - [Tapa messages](./tapa_messages/README.md)
-- [Tapa monitor]() ?
 
 ### Generic servers and supervision
 

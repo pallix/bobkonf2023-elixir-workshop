@@ -111,17 +111,19 @@ TapaMessages.start_two_children_trap_exit()
 
 and waits 2 seconds. When you see `Type: ...` in the REPL, type what is
 indicated. We can see that `child2` is still alive despite its parent having an
-error and both processes being linked.
+error and both processes being linked. Why? Check the
+[documentation](https://hexdocs.pm/elixir/1.14/Process.html#exit/2)
 
 The `Received: {:EXIT, #PID<0.351.0>, :some_error}` output shows us that the
 communication for the lifecycle of processes happen also with messages (also
 called signals).
 
+If process A wants to monitor process B without linking to it, process A can invoke the
+function `Process.monitor`. A message will be send to A when B dies.
+
 ## Part 2: distributed Erlang
 
-
 In a second terminal start a second `iex` REPL like this:
-
 
 Starts `iex` like this:
 
