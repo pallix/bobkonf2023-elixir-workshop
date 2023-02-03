@@ -236,3 +236,20 @@ the flexibility of Elixir/Erlang.
 
 In practice we almost never use such the low-level functions such as `send` and
 `Node.spawn` but built our application in top of GenServers.
+
+# Open questions
+
+Maybe you know the old [CORBA RPC
+technology](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture)
+or a more modern one like gRPC, what make them different to Distributed Erlang?
+Why is it possible to have the same interface when sending message locally or on
+a node?
+
+One [fallacy of distributed
+computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) is
+"The network is reliable". Do you have a guess on how does Elixir/Erlang deal
+with it? We will learn more about it in the next section of the tapas.
+
+# Tips
+
+Ask the instructors if you don't understand something or are blocked.
