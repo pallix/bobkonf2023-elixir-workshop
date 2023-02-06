@@ -45,12 +45,12 @@ Keywords: processes, messages, links, monitor, distributed erlang, trap exit
 
 ### Generic servers and supervision
 
-Keywords: genserver, supervisor, tasks
+Keywords: genserver, supervisor, tasks, monitoring, introspection, debugging
 
 - [Tapa genserver]()
-- [Tapa observer](./tapa_observer.README.md)
+- [Tapa observer](./tapa_observer/README.md)
 - [Tapa supervisor]()
-- [Tapa observability]()
+- [Tapa introspection]() [sys.get_state, process info, trace flag, dbg, recon]
 
 ### Metaprogramming
 
