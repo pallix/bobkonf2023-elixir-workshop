@@ -50,13 +50,13 @@ defmodule Mix.Tasks.RegisterRandomTrees do
 
     cond do
       duration_ms < 300 ->
-        Logger.info("Took #{duration_ms}")
+        Logger.info("Took #{duration_ms}ms")
 
       duration_ms >= 300 and duration_ms < 600 ->
-        Logger.warning("Took #{duration_ms}")
+        Logger.warning("Took #{duration_ms}ms")
 
       duration_ms >= 600 ->
-        Logger.error("Took #{duration_ms}")
+        Logger.error("Took #{duration_ms}ms")
     end
 
   rescue

@@ -5,10 +5,16 @@ defmodule TapaObserver.Application do
 
   use Application
 
+  alias TapaObserver.AuditLog
+  alias TapaObserver.Store
+  alias TapaObserver.TreeRegistration
+
   @impl true
   def start(_type, _args) do
     children = [
-      TapaObserver.TreeRegistration
+      TreeRegistration,
+      Store,
+      AuditLog
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
