@@ -74,7 +74,7 @@ very it by looking at the code.
 
 If you are stuck or when you are done read this:
 
-<detail>
+<details>
 In the `Processes` tab of the Observer, `reds` means `reductions` is an
 indicator of the number of VM operations a process does. You can click on the
 columns to sort the processes. If there is a bottleneck, it's probably because a
