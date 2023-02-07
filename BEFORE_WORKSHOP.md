@@ -91,7 +91,7 @@ Finished in 0.01 seconds (0.00s async, 0.01s sync)
 ### Setting up your editor / IDE (mandatory)
 
 Set up your editor or IDE to work with Elixir.
-Elixir has support for the language server protocol.
+Elixir has support for the [language server protocol](https://en.wikipedia.org/wiki/Language_Server_Protocol).
 
 ### Watching a cool talk (optional)
 
@@ -109,7 +109,8 @@ can concentrate on the fault-tolerant aspects of Elixir!
 - [Tapa enumerables](./tapa_enumerables/README.md)
 
 The exercises are relatively simple and can be solved with the helped of their
-README and some googling.
+README and some googling. If you don't have time, don't worry we will review
+them quickly together at the start of the workshop.
 
 ### Finishing
 
