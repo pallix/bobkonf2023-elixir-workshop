@@ -17,14 +17,6 @@ defmodule TapaGenserver.TreeStore do
     {:ok, []}
   end
 
-  def store(tree) do
-    GenServer.call(__MODULE__, {:store, tree})
-  end
-
-  def execessively_dry_trees() do
-    GenServer.call(__MODULE__, :excessively_dry_trees)
-  end
-
   #
   # GenServer callbacks
   #

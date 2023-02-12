@@ -47,7 +47,7 @@ Keywords: processes, messages, links, monitor, distributed erlang, trap exit
 
 Keywords: genserver, supervisor, tasks, monitoring, introspection, debugging
 
-- [Tapa genserver]()
+- [Tapa genserver](./tapa_genserver/README.md)
 - [Tapa observer](./tapa_observer/README.md)
 - [Tapa supervisor]()
 - [Tapa introspection]() [sys.get_state, process info, trace flag, dbg, recon]

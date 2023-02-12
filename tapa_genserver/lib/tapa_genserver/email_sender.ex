@@ -15,8 +15,9 @@ defmodule TapaGenserver.EmailSender do
   # Public API
   #
 
-  def start_link([]) do
-    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  def start_link(options) do
+    observer = Keyword.get(options, :observer)
+    GenServer.start_link(__MODULE__, observer, name: __MODULE__)
   end
 
   def send_email(email, content) do
@@ -27,12 +28,12 @@ defmodule TapaGenserver.EmailSender do
   # GenServer callbacks
   #
 
-  def init([]) do
-    {:ok, []}
+  def init(observer) do
+    {:ok, observer}
   end
 
   def handle_cast({:send_email, email, content}, state) do
-    do_send_email(email, content)
+    do_send_email(email, content, state)
     {:noreply, state}
   end
 
@@ -40,8 +41,11 @@ defmodule TapaGenserver.EmailSender do
   # Private functions
   #
 
-  defp do_send_email(email, content) do
+  defp do_send_email(email, content, observer) do
     Logger.info("Sending email to #{email} with content: #{content}")
+    if observer do
+      send(observer, {:sent, email})
+    end
   end
 
 end
