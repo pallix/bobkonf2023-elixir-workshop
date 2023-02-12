@@ -10,7 +10,7 @@ git clone https://github.com/pallix/bobkonf2023-elixir-workshop.git
 
 ### Installing Elixir (mandatory)
 
-Make sure you have Elixir 1.13 or superior installed. You can find
+Make sure you have Elixir 1.14 or superior installed. You can find
 [instructions](https://elixir-lang.org/install.html#distributions) on the
 official website.
 
