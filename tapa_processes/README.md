@@ -104,12 +104,38 @@ iex(8)> TapaProcesses.start_two_children
 
 Can you explain why `IO.puts("This never happens")` is never executed?
 
-What happen when you change the `spawn_link` to `spawn`, reload the module with
-`r TapaProcesses.start_two_children` and reexecute the function?
+Now replace `:some_error` with `:normal` in the code. Reload the code:
+
+```
+r TapaProcess
+```
+
+and try again:
+
+
+```
+iex(8)> TapaProcesses.start_two_children
+```
+
+What happen?
+
+Now write back `some_error` instead of `normal` and change the `spawn_link` to
+`spawn`, reload the module with `r TapaProcesses.start_two_children` and
+reexecute the function. What happen?
 
 In addition to `spawn` and `spawn_link` there is also `Process.spawn` which is
 slightly higher level API. In practice we rarely use these functions but higher
-constructions like GenServers.
+constructions like GenServers. However it's very important to understand how
+linking works. By linking or not linking processes together, we communicate and
+enforce the way processes may rely on each other to achieve their work.
+
+Links are always bidirectional, if process A and B are linked, we now that a
+failure in B would prevent A to work correctly (and vice-versa) and/or that what
+is computed by B can only be used by A. We make it clear that there is a
+dependency relationship that should be enforced in case of failure, any failure
+in A will make B stop (and vice-versa). This is specially important when using
+supervisors (which we see later), in case of a failure it ensures both A and B
+will be restarted together, ensuring the system will be in a consistent state.
 
 # Tips
 

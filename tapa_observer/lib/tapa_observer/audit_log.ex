@@ -11,8 +11,8 @@ defmodule TapaObserver.AuditLog do
   # Public API
   #
 
-  def log_tree_registered(tree_uuid) do
-    GenServer.call(__MODULE__, {:log_tree_registered, tree_uuid})
+  def log_registration(tree_uuid) do
+    GenServer.call(__MODULE__, {:log_registration, tree_uuid})
   end
 
   #
@@ -23,18 +23,14 @@ defmodule TapaObserver.AuditLog do
     {:ok, []}
   end
 
-  def handle_call({:log_tree_registered, tree_uuid}, _from, state) do
-    log_registration(tree_uuid)
+  def handle_call({:log_registration, tree_uuid}, _from, state) do
+    store_to_the_blockchain(tree_uuid)
     {:reply, :ok, state}
   end
 
   #
   # Private functions
   #
-
-  defp log_registration(tree_uuid) do
-    store_to_the_blockchain(tree_uuid)
-  end
 
   defp store_to_the_blockchain(tree_uuid) do
     waste_electricity_and_pollute(tree_uuid)

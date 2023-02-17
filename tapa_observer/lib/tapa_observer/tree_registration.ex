@@ -20,7 +20,7 @@ defmodule TapaObserver.TreeRegistration do
     Logger.info("Registering tree #{tree.uuid}")
 
     with {:ok, _} <- Store.save(tree),
-         :ok <- AuditLog.log_tree_registered(tree.uuid) do
+         :ok <- AuditLog.log_registration(tree.uuid) do
       {:reply, :ok, state}
     else
       err ->
