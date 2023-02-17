@@ -7,8 +7,7 @@ Do not look at the code of this application before reading the instructions belo
 
 ## Goal
 
-*Without looking at the code*, find which process is causing [PROBLEM TO BE DEFINED] every
-20 seconds.
+*Without looking at the code*, find which process is causing latency problems and a bottleneck.
 
 In a terminal start the project with:
 
