@@ -9,8 +9,9 @@ defmodule TapaGenserver.TreeStore do
   # Public API
   #
 
-  def start_link([]) do
-    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  def start_link(options) do
+    name = Keyword.get(options, :name, __MODULE__)
+    GenServer.start_link(__MODULE__, [], name: name)
   end
 
   def init([]) do

@@ -5,11 +5,16 @@ defmodule TapaGenserver.Application do
 
   use Application
 
+  alias TapaGenserver.TreeStore
+  alias TapaGenserver.UserStore
+  alias TapaGenserver.DrynessNotifier
+
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: TapaGenserver.Worker.start_link(arg)
-      # {TapaGenserver.Worker, arg}
+      TreeStore,
+      UserStore,
+      DrynessNotifier
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -1,5 +1,4 @@
 defmodule TapaGenserver.EmailSender do
-
   @moduledoc """
   Sends notifications via emails.
 
@@ -43,9 +42,9 @@ defmodule TapaGenserver.EmailSender do
 
   defp do_send_email(email, content, observer) do
     Logger.info("Sending email to #{email} with content: #{content}")
+
     if observer do
       send(observer, {:sent, email})
     end
   end
-
 end

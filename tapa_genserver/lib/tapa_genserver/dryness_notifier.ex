@@ -1,23 +1,28 @@
 defmodule TapaGenserver.DrynessNotifier do
-  @moduledoc "TODO"
+  @moduledoc "GenServer notifying users when trees are too dry"
 
   use GenServer
+
+  require Logger
 
   #
   # Public API
   #
 
   def start_link(options) do
-    GenServer.start_link(__MODULE__, options, name: __MODULE__)
+    name = Keyword.get(options, :name, __MODULE__)
+    GenServer.start_link(__MODULE__, options, name: name)
   end
 
   def init(options) do
-    email_notifier = Keyword.get(options, :email_notifier, TapaGenServer.EmailNotifier)
-    notify_period = Keyword.get(options, :notify_period, 10_000)
+    tree_store = Keyword.get(options, :tree_store, TapaGenserver.TreeStore)
+    user_store = Keyword.get(options, :user_store, TapaGenserver.UserStore)
+    email_sender = Keyword.get(options, :email_sender, TapaGenserver.EmailSender)
+    notify_period = Keyword.get(options, :notify_period, 2_000)
 
-    :timer.send_interval(:notify_users, notify_period)
+    :timer.send_interval(notify_period, :notify_users)
 
-    {:ok, %{email_notifier: email_notifier}}
+    {:ok, %{tree_store: tree_store, user_store: user_store, email_sender: email_sender}}
   end
 
   #
@@ -25,7 +30,7 @@ defmodule TapaGenserver.DrynessNotifier do
   #
 
   def handle_info(:notify_users, state) do
-    notify_users()
+    notify_users(state)
     {:noreply, state}
   end
 
@@ -33,7 +38,17 @@ defmodule TapaGenserver.DrynessNotifier do
   # Private functions
   #
 
-  defp notify_users() do
-    # dry_trees = TreeStore.dry_trees()
+  defp notify_users(state) do
+    dry_trees = GenServer.call(state.tree_store, :excessively_dry_trees)
+
+    Enum.each(dry_trees, fn tree ->
+      close_users =
+        GenServer.call(state.user_store, {:users_close_from, {tree.latitude, tree.longitude}})
+
+      Enum.each(close_users, fn user ->
+        content = "Tree located at #{tree.latitude}, #{tree.longitude} is too dry!"
+        GenServer.cast(state.email_sender, {:send_email, user.email, content})
+      end)
+    end)
   end
 end

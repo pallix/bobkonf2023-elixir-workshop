@@ -21,11 +21,16 @@ defmodule TapaGenserver.Tree do
             specie: nil
 
   @species [
-    :quercus, # oak
-    :tilia,  # linden
-    :acer,  # maple
-    :platanus, # plane
-    :aesculus, # chestnut
+    # oak
+    :quercus,
+    # linden
+    :tilia,
+    # maple
+    :acer,
+    # plane
+    :platanus,
+    # chestnut
+    :aesculus,
     :unknown
   ]
 
