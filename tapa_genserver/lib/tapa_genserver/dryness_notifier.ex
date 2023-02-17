@@ -40,15 +40,6 @@ defmodule TapaGenserver.DrynessNotifier do
 
   defp notify_users(state) do
     dry_trees = GenServer.call(state.tree_store, :excessively_dry_trees)
-
-    Enum.each(dry_trees, fn tree ->
-      close_users =
-        GenServer.call(state.user_store, {:users_close_from, {tree.latitude, tree.longitude}})
-
-      Enum.each(close_users, fn user ->
-        content = "Tree located at #{tree.latitude}, #{tree.longitude} is too dry!"
-        GenServer.cast(state.email_sender, {:send_email, user.email, content})
-      end)
-    end)
+    # TODO: implement the rest!
   end
 end

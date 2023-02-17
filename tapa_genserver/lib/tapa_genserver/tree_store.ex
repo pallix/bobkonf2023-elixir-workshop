@@ -3,7 +3,7 @@ defmodule TapaGenserver.TreeStore do
 
   use GenServer
 
-  alias TapaGenserver.Tree
+  # alias TapaGenserver.Tree
 
   #
   # Public API
@@ -15,24 +15,20 @@ defmodule TapaGenserver.TreeStore do
   end
 
   def init([]) do
-    {:ok, []}
+    {:ok, 42}
   end
 
   #
   # GenServer callbacks
   #
 
-  def handle_call({:store, tree}, _from, state) do
-    state = [tree | state]
+  def handle_call({:store, _tree}, _from, state) do
+    # TODO
     {:reply, :ok, state}
   end
 
   def handle_call(:excessively_dry_trees, _from, state) do
-    trees = find_excessively_dry_trees(state)
-    {:reply, trees, state}
-  end
-
-  defp find_excessively_dry_trees(trees) do
-    Enum.filter(trees, fn tree -> Tree.moisture_level(tree) == :excessively_dry end)
+    # TODO
+    {:reply, [], state}
   end
 end

@@ -19,10 +19,6 @@ defmodule TapaGenserver.EmailSender do
     GenServer.start_link(__MODULE__, observer, name: __MODULE__)
   end
 
-  def send_email(email, content) do
-    GenServer.cast(__MODULE__, {:send_email, email, content})
-  end
-
   #
   # GenServer callbacks
   #
