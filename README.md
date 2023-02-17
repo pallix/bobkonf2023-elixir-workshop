@@ -51,9 +51,3 @@ Keywords: genserver, supervisor, tasks, monitoring, introspection, debugging
 - [Tapa observer](./tapa_observer/README.md)
 - [Tapa supervisor]()
 - [Tapa introspection]() [sys.get_state, process info, trace flag, dbg, recon]
-
-### Metaprogramming (optional)
-
-Keywords: syntactic macros
-
-- [Tapa macro]()
