@@ -6,7 +6,7 @@ defmodule TapaGenserver.TreeStoreTest do
   alias Uniq.UUID
 
   setup do
-    {:ok, tree_store} = start_supervised(TreeStore)
+    {:ok, tree_store} = start_supervised({TreeStore, [name: TreeStore.Test]})
 
     [tree_store: tree_store]
   end

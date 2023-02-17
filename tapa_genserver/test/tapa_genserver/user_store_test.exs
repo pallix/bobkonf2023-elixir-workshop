@@ -5,7 +5,7 @@ defmodule TapaGenserver.UserStoreTest do
   alias TapaGenserver.UserStore
 
   setup do
-    {:ok, user_store} = start_supervised(UserStore)
+    {:ok, user_store} = start_supervised({UserStore, [name: UserStore.Test]})
 
     [user_store: user_store]
   end
