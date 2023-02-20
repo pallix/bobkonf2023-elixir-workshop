@@ -8,6 +8,11 @@ Then implement the missing code of the `DrynessNotifier` GenServer.
 
 You can verify that your implementation is correct by running `mix test`.
 
+## Tips
+
+If you use `Enum.map` but with the purpose of doing side-effects inside the
+mapping function, consider `Enum.each` instead. It makes the intention clearer.
+
 ## Open Questions
 
 Once you are finished, read this:
