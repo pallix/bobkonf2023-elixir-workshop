@@ -35,9 +35,9 @@ elixir --version
 You should see an output similar to this one:
 
 ```
-Erlang/OTP 24 [erts-12.2] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [jit]
+Erlang/OTP 25 [erts-13.1.4] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [jit:ns]
 
-Elixir 1.13.4 (compiled with Erlang/OTP 24)
+Elixir 1.14.3 (compiled with Erlang/OTP 25)
 ```
 
 Create a test project with the following command:
