@@ -16,9 +16,19 @@ defmodule TapaSupervisor.Application do
     children = [
       TreeStore,
       UserStore,
-      DrynessNotifier,
-      EmailSender,
-      Reporting
+      %{
+        id: TapaSupervisor.ReportingSupervisor,
+        start:
+        {Supervisor, :start_link,
+         [
+           [
+             DrynessNotifier,
+             Reporting
+           ],
+           [strategy: :rest_for_one]
+         ]}
+      },
+      EmailSender
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

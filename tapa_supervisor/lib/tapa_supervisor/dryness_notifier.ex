@@ -5,6 +5,8 @@ defmodule TapaSupervisor.DrynessNotifier do
 
   require Logger
 
+  alias TapaSupervisor.Reporting
+
   #
   # Public API
   #
@@ -42,6 +44,8 @@ defmodule TapaSupervisor.DrynessNotifier do
     dry_trees = GenServer.call(state.tree_store, :excessively_dry_trees)
 
     Enum.each(dry_trees, fn tree ->
+      GenServer.call(Reporting, {:tree_excessively_dry, tree.uuid})
+
       close_users =
         GenServer.call(state.user_store, {:users_close_from, {tree.latitude, tree.longitude}})
 

@@ -12,7 +12,7 @@ Suppose for example we want to create a report and analyze how long it takes on
 average between the observation of a tree being excessively dry and the same
 tree being watered and/or how long it takes for a watered tree to become dry again.
 We could create a `Reporting` GenServer that does such calculation and aggregates
-statistics when it receive the message `{:excessively_dry, tree_uuid}` and
+statistics when it receive the message `{:tree_excessively_dry, tree_uuid}` and
 `{:tree_watered, tree_uuid}`.
 
 Suppose now than the `{:excessively_dry, tree_uuid}` message is send by our

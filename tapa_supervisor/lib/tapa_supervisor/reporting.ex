@@ -15,7 +15,7 @@ defmodule TapaSupervisor.Reporting do
     {:ok, []}
   end
 
-  def handle_call({:excessively_dry, _uuid}, _from, state) do
+  def handle_call({:tree_excessively_dry, _uuid}, _from, state) do
     # not implemented, we just focus on the supervisor restarts for this tapa
     {:reply, :ok, state}
   end
