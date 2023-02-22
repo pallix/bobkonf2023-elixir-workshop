@@ -8,13 +8,15 @@ defmodule TapaGenserver.Application do
   alias TapaGenserver.TreeStore
   alias TapaGenserver.UserStore
   alias TapaGenserver.DrynessNotifier
+  alias TapaGenserver.EmailSender
 
   @impl true
   def start(_type, _args) do
     children = [
       TreeStore,
       UserStore,
-      DrynessNotifier
+      DrynessNotifier,
+      EmailSender
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

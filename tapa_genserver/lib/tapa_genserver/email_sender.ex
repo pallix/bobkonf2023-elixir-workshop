@@ -16,7 +16,8 @@ defmodule TapaGenserver.EmailSender do
 
   def start_link(options) do
     observer = Keyword.get(options, :observer)
-    GenServer.start_link(__MODULE__, observer, name: __MODULE__)
+    name = Keyword.get(options, :name, __MODULE__)
+    GenServer.start_link(__MODULE__, observer, name: name)
   end
 
   #

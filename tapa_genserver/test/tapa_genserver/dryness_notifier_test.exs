@@ -14,7 +14,7 @@ defmodule TapaGenserver.DrynessNotifierTest do
   setup do
     {:ok, user_store} = start_supervised({UserStore, [name: UserStore.Test]})
     {:ok, tree_store} = start_supervised({TreeStore, [name: TreeStore.Test]})
-    {:ok, email_sender} = start_supervised({EmailSender, [observer: self()]})
+    {:ok, email_sender} = start_supervised({EmailSender, [name: EmailSenderTest, observer: self()]})
 
     {:ok, dryness_notifier} =
       start_supervised(
