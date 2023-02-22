@@ -8,6 +8,7 @@ defmodule TapaSupervisor.Application do
   alias TapaSupervisor.TreeStore
   alias TapaSupervisor.UserStore
   alias TapaSupervisor.DrynessNotifier
+  alias TapaSupervisor.Reporting
   alias TapaSupervisor.EmailSender
 
   @impl true
@@ -16,7 +17,8 @@ defmodule TapaSupervisor.Application do
       TreeStore,
       UserStore,
       DrynessNotifier,
-      EmailSender
+      EmailSender,
+      Reporting
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

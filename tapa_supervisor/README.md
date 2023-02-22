@@ -30,13 +30,15 @@ our case when `DrynessNotifier` crashes, it would be better also to restart
 `Reporting`.
 
 Your goal is to modify the application supervisor tree so that when
-`DrynessNotifier` crashes, `Reporting` is restarted.
+`DrynessNotifier` crashes, `Reporting` is also restarted.
 
 Test manually your code with the Observer (`:observer.start` in iex after `iex
 -S mix`):
 
 Note the pids of the `DrynessNotifier` and `Reporting` processes, kill the
-`DrynessNotifier` process and see if the `Reporting` processes was restarted.
+`DrynessNotifier` process (with right-click) and see if the `Reporting`
+processes was restarted. Adjust the refresh interval of the Observer in
+View/Refresh interval before.
 
 If the code was for production, we could also test the restart with code (using
 `Process.exit`, `Process.monitor`, `Supervisor.which_children`, etc).
