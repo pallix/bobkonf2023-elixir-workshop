@@ -17,6 +17,14 @@ fundamental aspects of Elixir and its runtime.
 Follow the instructions at [BEFORE_WORKSHOP.md](BEFORE_WORKSHOP.md) to setup
 your system for the workshop.
 
+If for some reasons you did not manage to set up your system, use the GitPod web
+environment here:
+
+https://gitpod.io/#/github.com/pallix/bobkonf2023-elixir-workshop
+
+This will allow you to do most of the tapas except `tapa_observer` and
+`tapa_supervisor`.
+
 ## During the workshop
 
 We will present shortly Elixir and its runtime and then you can start tasting
