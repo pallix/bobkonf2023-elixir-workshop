@@ -16,18 +16,8 @@ defmodule TapaSupervisor.Application do
     children = [
       TreeStore,
       UserStore,
-      %{
-        id: TapaSupervisor.ReportingSupervisor,
-        start:
-        {Supervisor, :start_link,
-         [
-           [
-             DrynessNotifier,
-             Reporting
-           ],
-           [strategy: :rest_for_one]
-         ]}
-      },
+      DrynessNotifier,
+      Reporting,
       EmailSender
     ]
 
