@@ -13,11 +13,6 @@ defmodule TapaObserver.Location do
   end
 
   def locations(trees) do
-    Enum.map(trees, &{&1.latitude, &1.longitude})
-    # To understand the code above:
-    # & is the syntax for anynmous function
-    # &(&1 + &2) is equivalent to: fn a b -> a + b end
-    # so &{&1.latitute, &1.location} is equivalent to fn tree -> {tree.latitude, tree.longitude} end
-
+    Enum.map(trees, fn tree -> {tree.latitude, tree.longitude} end)
   end
 end
