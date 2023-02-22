@@ -6,7 +6,7 @@ defmodule TapaGenserver.EmailSenderTest do
   alias TapaGenserver.EmailSender
 
   setup do
-    {:ok, email_sender} = start_supervised({EmailSender, [observer: self()]})
+    {:ok, email_sender} = start_supervised({EmailSender, [name: EmailSenderTest, observer: self()]})
 
     [email_server: email_sender]
   end
