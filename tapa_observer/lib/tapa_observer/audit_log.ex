@@ -40,5 +40,7 @@ defmodule TapaObserver.AuditLog do
     for _ <- 1..200000 do
       :crypto.hash(:sha3_256, tree_uuid)
     end
+
+    :ok
   end
 end
