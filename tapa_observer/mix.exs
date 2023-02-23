@@ -23,7 +23,8 @@ defmodule TapaObserver.MixProject do
   defp deps do
     [
       {:geocalc, "~> 0.8"},
-      {:uniq, "~> 0.1"}
+      {:uniq, "~> 0.1"},
+      {:recon, "~> 2.5"}
     ]
   end
 end

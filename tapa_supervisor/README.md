@@ -2,9 +2,9 @@
 
 ## Goal
 
-Better understand the different restart strategies of the supervisor.
+Better understand the different restart strategies of the supervisors.
 
-Choosing the supervisor restart strategies requires experience and thinking
+Choosing the supervisors restart strategies requires experience and thinking
 deeply about the mode of failures of our application. While the `one_for_one`
 strategy is the simplest and the most used, it is not always the one we need.
 
