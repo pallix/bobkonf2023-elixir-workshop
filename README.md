@@ -59,3 +59,16 @@ Keywords: genserver, supervisor, tasks, introspection, debugging
 - [Tapa observer](./tapa_observer/README.md)
 - [Tapa supervisor](./tapa_supervisor/README.md)
 - [Tapa introspection](./tapa_introspection/README.md)
+
+## Beyond the workshop
+
+If you enjoyed the workshop, you can learn more of Elixir by following the official getting started guide:
+
+https://elixir-lang.org/getting-started/introduction.html
+
+Some mentioned subjects we explore with less depth (general features), some with
+more depth (distributed aspects, debugging and introspection).
+
+You can then start working on a small project or if you feel you need to learn more first, have a look at:
+
+https://elixir-lang.org/learning.html
