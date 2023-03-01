@@ -37,7 +37,7 @@ to build a system helping to organize a community taking care of some trees.
 
 ## Tapas
 
-### Basics of the language
+### Basics of the language (optional)
 
 Keywords: immutable datastructures, map, structs, list, enumerables, pattern matching, guards, iex
 
