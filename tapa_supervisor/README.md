@@ -10,19 +10,19 @@ strategy is the simplest and the most used, it is not always the one we need.
 
 Suppose for example we want to create a report and analyze how long it takes on
 average between the observation of a tree being excessively dry and the same
-tree being watered and/or how long it takes for a watered tree to become dry again.
+tree being watered or how long it takes for a watered tree to become dry again.
 We could create a `Reporting` GenServer that does such calculation and aggregates
-statistics when it receive the message `{:tree_excessively_dry, tree_uuid}` and
+statistics when it receives the message `{:tree_excessively_dry, tree_uuid}` and
 `{:tree_watered, tree_uuid}`.
 
-Suppose now than the `{:excessively_dry, tree_uuid}` message is send by our
+Suppose now than the `{:excessively_dry, tree_uuid}` message is sent by our
 `DrynessNotifier` GenServer and that the `{:tree_watered, tree_uuid}` message is
-send by some controller code from a graphical UI. The messages can be send in
-any order. Thus within the `Reporting` GenServer we would accumulate stats about
-watered trees. Now suppose that for some unseen reason `DrynessNotifier`
-crashes, this mean we would miss some `{:excessively_dry, tree_uuid}` messages
-during the crash. It might be better/easier in this case to restart `Reporting`
-to restart with fresh stats.
+sent by some code from a graphical UI. The messages could be send in any order.
+Thus within the `Reporting` GenServer we would accumulate stats about watered
+trees. Now suppose that for some unseen reason `DrynessNotifier` crashes, this
+mean we would miss some `{:excessively_dry, tree_uuid}` messages during the
+crash. It might be better/easier in this case to restart `Reporting` with fresh
+stats.
 
 The example is contrived because of the format of the workshop but the core idea
 is: we have identified some dependency in the failure modes of our processes. In
@@ -38,7 +38,7 @@ Test manually your code with the Observer (`:observer.start` in iex after `iex
 Note the pids of the `DrynessNotifier` and `Reporting` processes, kill the
 `DrynessNotifier` process (with right-click) and see if the `Reporting`
 processes was restarted. Adjust the refresh interval of the Observer in
-View/Refresh interval before.
+View/Refresh interval menu before.
 
 If the code was for production, we could also test the restart with code (using
 `Process.exit`, `Process.monitor`, `Supervisor.which_children`, etc).
