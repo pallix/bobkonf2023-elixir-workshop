@@ -8,9 +8,11 @@ defmodule TapaEnumerables.Location do
   """
   def trees_nearby(trees, location, distance \\ 100) do
     # TODO: implement this
+    []
   end
 
   def locations(trees) do
     # TODO: implement this
+    []
   end
 end

@@ -4,5 +4,6 @@ defmodule TapaEnumerables.Moisture do
   @doc "Returns the average moisture of a list of tree"
   def average_moisture(trees) do
     # TODO: implement this
+    0
   end
 end
