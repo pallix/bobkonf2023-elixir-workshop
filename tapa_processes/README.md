@@ -107,7 +107,7 @@ Can you explain why `IO.puts("This never happens")` is never executed?
 Now replace `:some_error` with `:normal` in the code. Reload the code:
 
 ```
-r TapaProcess
+r TapaProcesses
 ```
 
 and try again:
