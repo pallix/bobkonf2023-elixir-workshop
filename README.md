@@ -35,6 +35,15 @@ The tapas are loosely connected through a common theme: sponsorship and caring
 for (physical) trees. The Elixir building blocks we will explore could be used
 to build a system helping to organize a community taking care of some trees.
 
+## Presentation
+
+If you need to access the slides after the presentation, they are available here:
+
+https://docs.google.com/presentation/d/1viuYxwsTMR88J6CYJlz_-GvfbYyfDo8x8ByauxJz5nQ/edit#slide=id.p1
+
+The formatting is broken because the original document is in LibreOffice but all
+the texts and pictures are readable.
+
 ## Tapas
 
 ### Basics of the language (optional)
