@@ -13,6 +13,8 @@ You can verify that your implementation is correct by running `mix test`.
 If you use `Enum.map` but with the purpose of doing side-effects inside the
 mapping function, consider `Enum.each` instead. It makes the intention clearer.
 
+Look at the existing code for examples of creating and invoking GenServers.
+
 ## Open Questions
 
 Once you are finished, read this:

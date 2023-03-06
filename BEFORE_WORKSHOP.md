@@ -18,11 +18,11 @@ We assume the participants are either using Linux or MacOS. While the tutorial
 probably works on Windows, we did not test on it. If you are using Windows, you might
 want to install Elixir in a Linux virtual machine (virtualbox, vmware etc).
 
-If your operating system does not provide Elixir 1.13 or superior, you can run
+If your operating system does not provide Elixir 1.14 or superior, you can run
 the [docker image](https://elixir-lang.org/install.html#docker) or install the
 [Nix package manager](https://elixir-lang.org/install.html#docker). With Nix you
 can get a shell with a recent Elixir version with the following command:
-`nix-shell -p elixir`.
+`nix-shell -p beam.packages.erlangR25.elixir_1_14`.
 
 ### Verifying the Elixir installation (mandatory)
 

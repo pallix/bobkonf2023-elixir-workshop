@@ -220,6 +220,7 @@ iex(node2@127.0.0.1)3> receive do
 In terminal 1:
 
 ```
+iex(node1@127.0.0.1)1> add_42 = fn x -> x + 42 end
 iex(node1@127.0.0.1)14> send({:repl_node2, :"node2@127.0.0.1"}, add_42)
 #Function<44.65746770/1 in :erl_eval.expr/5>
 ```
